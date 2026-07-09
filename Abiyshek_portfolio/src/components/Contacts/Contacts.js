@@ -31,7 +31,6 @@ function Contacts() {
 
     const [success, setSuccess] = useState(false);
     const [errMsg, setErrMsg] = useState('');
-    const [loading, setLoading] = useState(false);
 
     const { theme } = useContext(ThemeContext);
 
