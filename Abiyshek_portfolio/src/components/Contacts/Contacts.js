@@ -31,6 +31,7 @@ function Contacts() {
 
     const [success, setSuccess] = useState(false);
     const [errMsg, setErrMsg] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const { theme } = useContext(ThemeContext);
 
@@ -240,8 +241,9 @@ function Contacts() {
                                 <button
                                     type='submit'
                                     className={classes.submitBtn}
+                                    disabled={loading || success}
                                 >
-                                    <p>{!success ? 'Send' : 'Sent'}</p>
+                                    <p>{!success ? (loading ? 'Sending...' : 'Send') : 'Sent'}</p>
                                     <div className='submit-icon'>
                                         <AiOutlineSend
                                             className='send-icon'
