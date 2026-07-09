@@ -5,6 +5,7 @@ import { ThemeContext } from './contexts/ThemeContext';
 import { Main, BlogPage, ProjectPage } from './pages'
 import { BackToTop } from './components'
 import ScrollToTop from './utils/ScrollToTop'
+import ThreeBg from './components/ThreeBg/ThreeBg'
 
 import './App.css'
 
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div className="app">
+      <ThreeBg />
       <Router>
         <ScrollToTop/>
         <Switch>

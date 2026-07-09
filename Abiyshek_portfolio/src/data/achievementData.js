@@ -1,5 +1,5 @@
 export const achievementData = {
-    bio : "Highly motivated and accomplished Software Development with expertise in AI/Ml, Quantum Computing and Cyber Security Projects. 4-time hackathon winner, recognized for innovative solutions and exceptional teamwork. Proven ability to drive projects forward and deliver results.",
+    bio : "Highly motivated and accomplished Software Development with expertise in AI/Ml, Quantum Computing and Cyber Security Projects. 9-time hackathon winner, recognized for innovative solutions and exceptional teamwork. Proven ability to drive projects forward and deliver results.",
     achievements : [
         {
             id : 1,

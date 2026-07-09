@@ -1,7 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { Snackbar, IconButton, SnackbarContent } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import emailjs from 'emailjs-com';
 import isEmail from 'validator/lib/isEmail';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -36,10 +35,7 @@ function Contacts() {
 
     const { theme } = useContext(ThemeContext);
 
-    // Initialize EmailJS
-    useEffect(() => {
-        emailjs.init(contactsData.emailjs_public_key);
-    }, []);
+
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -81,6 +77,8 @@ function Contacts() {
             padding: '0 5px',
             transform: 'translate(25px,50%)',
             display: 'inline-flex',
+            position: 'relative',
+            zIndex: 2,
         },
         socialIcon: {
             width: '45px',
@@ -137,22 +135,21 @@ function Contacts() {
         if (name && email && message) {
             if (isEmail(email)) {
                 setLoading(true);
-                
-                const templateParams = {
-                    to_email: contactsData.email,
-                    from_name: name,
-                    from_email: email,
-                    message: message,
-                };
 
-                emailjs
-                    .send(
-                        contactsData.emailjs_service_id,
-                        contactsData.emailjs_template_id,
-                        templateParams
-                    )
-                    .then((res) => {
-                        console.log('Email sent successfully!');
+                const formData = new FormData();
+                formData.append("access_key", "7bb6b3aa-735a-4661-939a-4d2ed7cffa51");
+                formData.append("name", name);
+                formData.append("email", email);
+                formData.append("message", message);
+
+                fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.success) {
+                        console.log('Message sent successfully!');
                         setSuccess(true);
                         setErrMsg('');
                         setName('');
@@ -160,13 +157,19 @@ function Contacts() {
                         setMessage('');
                         setOpen(false);
                         setLoading(false);
-                    })
-                    .catch((err) => {
-                        console.log('Error sending email:', err);
-                        setErrMsg('Failed to send message. Please try again.');
+                    } else {
+                        console.log('Error sending message:', data);
+                        setErrMsg(data.message || 'Failed to send message. Please try again.');
                         setOpen(true);
                         setLoading(false);
-                    });
+                    }
+                })
+                .catch((err) => {
+                    console.log('Error sending message:', err);
+                    setErrMsg('Failed to send message. Please try again.');
+                    setOpen(true);
+                    setLoading(false);
+                });
             } else {
                 setErrMsg('Invalid email');
                 setOpen(true);

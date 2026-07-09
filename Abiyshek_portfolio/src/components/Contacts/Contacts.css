@@ -64,27 +64,45 @@
 .form-input {
     height: 50px;
     box-sizing: border-box;
-    border-radius: 50px; 
     outline: none;
     margin-bottom: 2rem;
-    padding: 0.7rem 0.7rem;
+    padding: 0.7rem 1.2rem;
     border-radius: 20px;
     width: 100%; 
     resize: none;
+    background-color: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-
+.form-input:focus {
+    background-color: rgba(255, 255, 255, 0.75) !important;
+    border-color: var(--theme-primary, #FFC107) !important;
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.3) !important;
+}
 
 .form-message {
     height: 150px;
     box-sizing: border-box;
-    border-radius: 50px; 
     outline: none;
     margin-bottom: 2rem;
-    padding: 0.7rem 0.7rem;
+    padding: 0.7rem 1.2rem;
     border-radius: 20px;
     width: 100%;
     resize: none;
+    background-color: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-message:focus {
+    background-color: rgba(255, 255, 255, 0.75) !important;
+    border-color: var(--theme-primary, #FFC107) !important;
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.3) !important;
 }
 
 

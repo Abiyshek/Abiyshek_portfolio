@@ -1,5 +1,5 @@
-import Abiyshek_resume from '../assets/pdf/Abiyshek_resume.pdf'
-import headerImage from '../assets/png/Untitled design.png'
+import Abiyshek_resume from '../assets/pdf/Abiyshek_Resume_Final.pdf'
+import headerImage from '../assets/png/half_hoodie_BackgroundRemover.png'
 
 export const headerData = {
     name: 'Abiyshek Sathianarayanan',

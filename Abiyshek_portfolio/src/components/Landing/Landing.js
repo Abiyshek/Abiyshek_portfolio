@@ -22,6 +22,7 @@ function Landing() {
     const useStyles = makeStyles((t) => ({
         resumeBtn: {
             color: theme.primary,
+            backgroundColor: theme.secondary,
             borderRadius: '30px',
             textTransform: 'inherit',
             textDecoration: 'none',
@@ -30,12 +31,13 @@ function Landing() {
             fontWeight: '500',
             height: '50px',
             fontFamily: 'var(--primaryFont)',
-            border: `3px solid ${theme.primary}`,
-            transition: '100ms ease-out',
+            border: 'none',
+            boxShadow: '5px 5px 10px #c8c8c8, -5px -5px 10px #ffffff',
+            transition: 'all 0.2s ease-in-out',
             '&:hover': {
-                backgroundColor: theme.tertiary,
-                color: theme.secondary,
-                border: `3px solid ${theme.tertiary}`,
+                backgroundColor: theme.secondary,
+                color: theme.tertiary,
+                boxShadow: 'inset 3px 3px 6px #c8c8c8, inset -3px -3px 6px #ffffff',
             },
             [t.breakpoints.down('sm')]: {
                 width: '180px',
@@ -52,12 +54,13 @@ function Landing() {
             fontSize: '1rem',
             fontWeight: '500',
             fontFamily: 'var(--primaryFont)',
-            border: `3px solid ${theme.primary}`,
-            transition: '100ms ease-out',
+            border: 'none',
+            boxShadow: '5px 5px 10px #c8c8c8, -5px -5px 10px #ffffff',
+            transition: 'all 0.2s ease-in-out',
             '&:hover': {
-                backgroundColor: theme.secondary,
-                color: theme.tertiary,
-                border: `3px solid ${theme.tertiary}`,
+                backgroundColor: theme.primary,
+                color: theme.secondary,
+                boxShadow: 'inset 3px 3px 6px rgba(0, 0, 0, 0.18), inset -3px -3px 6px rgba(255, 255, 255, 0.25)',
             },
             [t.breakpoints.down('sm')]: {
                 display: 'none',
